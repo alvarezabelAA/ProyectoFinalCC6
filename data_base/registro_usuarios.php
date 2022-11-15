@@ -10,7 +10,19 @@
                 VALUES('$nombre','$usuario', '$contrasena') ";
 
     //Verificar que el correo no se repita en DB
-     
+    $verificacion = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usuario='$usuario' ");
+
+    if(mysqli_num_rows($verificacion)>0){
+        echo '
+            <script>
+                alert("Este Usuario ya esta en la base de datos, try again");
+                window.location = "../registro.html";
+            </script>
+        ';
+        exit();
+    }
+
+
     $execute = mysqli_query($conexion, $query);
           
     if($execute){

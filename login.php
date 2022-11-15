@@ -1,3 +1,13 @@
+<?php 
+
+    session_start();
+
+    if(isset($_SESSION['usuario'])){
+        header("location: main/principal.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +21,14 @@
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form action="" method="post">
+        <form action="data_base/login_usuario.php" method="POST">
             <div class="grupo_input">
                 <i class="fa-solid fa-user"></i>
-                <input class="login_input" type="text" placeholder="Usuario">
+                <input class="login_input" type="text" placeholder="Usuario" name="usuario">
             </div>
             <div class="grupo_input">
                 <i class="fa-solid fa-lock"></i>
-                <input class="login_input" type="password" placeholder="Password">
+                <input class="login_input" type="password" placeholder="Password" name="contrasena">
             </div>
             <button class="boton_login">Ingresar</button>
             <p>Eres integrante?<a href="registro.html"> Registrate</a></p>

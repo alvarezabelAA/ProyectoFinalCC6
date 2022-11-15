@@ -1,3 +1,20 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['usuario'])){
+        echo '
+            <script>
+                alert("Tienes que iniciar Sesion)";
+                window.location="login.html";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +39,7 @@
                     <ul>
                         <li><a href="principal.html" id="selected">Principal</a></li>
                         <li><a href="grupos.html">Grupos</a></li>
-                        <li><a href="">Cerrar Sesión</a></li>
+                        <li><a href="../data_base/cerrar_sesion.php">Cerrar Sesión</a></li>
                     </ul>
                 </nav>
             </div>
