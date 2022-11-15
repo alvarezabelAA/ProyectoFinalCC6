@@ -31,7 +31,7 @@ CREATE TABLE tareas(
 CREATE TABLE comentario(
 	id_nota integer NOT NULL AUTO_INCREMENT,
 	id_receptor integer,
-	contenido integer,
+	contenido varchar(500),
 	PRIMARY KEY(id_nota)
 );
 
