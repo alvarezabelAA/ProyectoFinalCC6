@@ -15,6 +15,23 @@
 
 ?>
 
+<?php 
+                            include "../data_base/conexion_db.php";
+
+                            $query = "select * from tareas order by id_receptor";
+                            $query2 = "select * from comentario order by id_receptor";
+                            $execute = mysqli_query($conexion, $query);
+                            $execute3 = mysqli_query($conexion, $query);
+                            $execute2 = mysqli_query($conexion, $query2);
+
+                            $id_receptor = 0;
+                            $tipo_tarea ="";
+                            $contenido ="";
+
+                            $contenido = "";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,48 +65,51 @@
         </div> 
     </header>
     <main>
-        <article>
-            <div class="titulo">
-                <div class="titulito">
-                    <h2><i class="fa-solid fa-pen-to-square"></i> Tareas</h2>
+    <div class="container__skills" id="skills">
+        <a href="add_edit/tarea.php"><button class="boton_add"><span>+ </span> Agregar Tarea</button></a> 
+            <div class="titulito">
+                    <h1><i class="fa-solid fa-pen-to-square"></i> Tareas</h1>
                 </div>
-                <div class="container_cuadrito">
-                    <div class="contenido">
-                            <?php 
-                            include "../data_base/conexion_db.php";
+            <div class="container__box">
+                <?php foreach($execute as $row) { ?>
+                <div class="box">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 20rem; ">
+                        <div class="card-header">ID del Usuario: <?php echo $row['id_receptor']; ?></div>
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['tipo_tarea']; ?></h5>
+                                <p class="card-text"><?php echo $row['contenido']; ?></p>
+                                <a href=add_edit/eliminar_tarea.php?id_tarea=<?php echo$row['id_tarea']?>><button type='button' class='btn btn-danger'>Eliminar</button></a>
 
-                            $query = "select * from tareas order by id_receptor";
-                            $execute = mysqli_query($conexion, $query);
-
-                            $id_receptor = 0;
-                            $tipo_tarea ="";
-                            $contenido ="";
-
-                            foreach($execute as $row) { ?>
-                                <div class="card text-white bg-primary mb-3" style="max-width: 18rem; ">
-                                <div class="card-header">Quien la hace?: <?php echo $row['id_receptor']; ?></div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $row['tipo_tarea']; ?></h5>
-                                    <p class="card-text"><?php echo $row['contenido']; ?></p>
-                                </div>
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <a href="add_edit/tarea.php"><button><span>+ </span> Agregar Tarea</button></a> 
+                                <a href="add_edit/editar_tarea.php?id_tarea=<?php echo$row['id_tarea']?>&contenido=<?php echo$row['contenido']?>">                             
+                                <button type="button" class="btn btn-warning">Edit</button></a>
+                            </div>
+                    </div>
                 </div>
+                <?php } ?>
             </div>
-        </article>
-        <article>
-            <div class="titulo">
-                <div class="titulito">
-                    <h2><i class="fa-regular fa-note-sticky"></i> Notas</h2>
+        </div>
+
+        <div class="container__skills" id="skills">
+        <a href="add_edit/nota_miembro.php"><button class="boton_add"> <span>+ </span> Agregar Nota a Miembro</button></a> 
+            <div class="titulito">
+                <h1><i class="fa-regular fa-note-sticky"></i> Notas</h1>
                 </div>
-                <div class="contenido">
-                    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id at, aperiam odit, dolorem distinctio atque aut dolorum rerum in quidem dignissimos debitis cum saepe laboriosam autem eius totam fugit harum?</span><span>Placeat illo perspiciatis excepturi incidunt reprehenderit impedit quaerat non sit distinctio laboriosam harum nulla corporis dolore officiis maxime veritatis praesentium, possimus quis modi aut necessitatibus quisquam. Natus praesentium qui consectetur.</span></p>
-                    <a href="add_edit/nota_miembro.php"><button> <span>+ </span> Agregar Nota a Miembro</button></a>
+            <div class="container__box">
+                <?php foreach($execute2 as $row) { ?>
+                <div class="box">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 20rem; ">
+                        <div class="card-header">Nota de : <?php echo $row['id_receptor']; ?></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Comentario:</h5>
+                                <p class="card-text"><?php echo $row['contenido']; ?></p>
+                                <a href=add_edit/eliminar_nota.php?id_nota=<?php echo$row['id_nota']?>><button type='button' class='btn btn-danger'>Eliminar</button></a>
+                                <a href="add_edit/editar_comentario.php?id_nota=<?php echo$row['id_nota']?>&contenido=<?php echo$row['contenido']?>"><button type="button" class="btn btn-warning">Edit</button></a>
+                            </div>
+                    </div>
                 </div>
+                <?php } ?>
             </div>
-        </article>
+        </div>
     </main>
 </body>
 </html>

@@ -94,6 +94,55 @@ nav ul li a:hover:before{
 }
 
 
+.container__skills{
+    margin-top: 100px;
+    padding: 10px;
+    padding-bottom: 100px;
+    background-color: #161A1D;
+    color: white;
+    border-radius: 10px;
+}
+
+.container__skills h1{
+    font-family: 'Montserrat',sans-serif;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 60px;
+    color: transparent;
+    background-color: #ffffff;
+    text-shadow: 2px 2px 3px rgb(81, 0, 255);
+    -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: clip;
+}
+
+
+.container__box{
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.box{
+    border-radius: 10px;
+    width: 218px;
+    height: 200px;
+    margin: 1px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Poppins',sans-serif;
+}
+
 /*Main*/
 
 main{
@@ -104,13 +153,7 @@ main{
     border-radius: 20px;
 }
 
-article{
-    width: 90%;
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+
 
 .contenido{
     margin: auto;
@@ -126,19 +169,7 @@ article{
 }
 
 
-
-article h1{
-    font-size: 60px;
-}
-
-article .contenido{
-    background-color:rgb(138, 152, 246);
-    padding: 20px;
-    border-radius: 20px;
-    
-}
-
-.container_cuadrito button{
+.container__skills .boton_add{
     margin-top: 10px;
     width: 200px;
     height: 50px;
@@ -150,26 +181,12 @@ article .contenido{
     box-shadow: 0px 0px 5px 0.2px black;
 }
 
-
-
-.contenido button{
-    margin-top: 10px;
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: rgb(81, 0, 255);
-    font-size: 15px;
-    color: white;
-    border: none;
-    box-shadow: 0px 0px 5px 0.2px black;
-}
-
-.contenido button span{
+.contenido .boton_add span{
     font-weight: bolder;
     font-size: 20px;
 }
 
-.contenido button:hover{
+.contenido .boton_add:hover{
     background-color: rgb(62, 0, 161) ;
 }
 
@@ -179,7 +196,6 @@ article .contenido{
     margin-bottom: 10px;
     margin-left: 20px;
 }
-
 
 
 

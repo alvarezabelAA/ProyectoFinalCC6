@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container_form">
-        <h2>Registrar Tarea</h2>
+        <h2>Dejar una Nota</h2>
         <form action="../../data_base/registro_notas.php" method="POST">
             <?php
                 include '../../data_base/conexion_db.php';
@@ -30,7 +30,7 @@
                 ?>
             </select>
             <input type="text" placeholder="Contenido a realizar" name="contenido">
-            <button>Agregar Tarea</button>
+            <button>Agregar Nota</button>
         </form>
         <a href="../principal.php"><button class="botoncito">Regresar</button></a>
     </div>
