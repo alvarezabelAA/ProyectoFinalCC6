@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #ffffff;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    margin-top: 40px;
+    z-index: 1;
+    padding: 40px;
+    font-family: "Poppins", sans-serif;
+}
+
+.container__menu{
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+.menu ul{
+    display: flex;
+}
+
+.menu ul li{
+    list-style: none;
+    margin-left: 36px;
+}
+
+.menu ul li a{
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    color: #161A1D;
+}
+
+.menu ul li a:hover{
+    color:  rgb(99, 61, 225);
+}
+
+.menu nav h2{
+    display: none;
+}
+
+.menu #btn_menu{
+    display: none;
+}
+
+nav ul li a:before{
+    position:absolute;
+    content: '';
+    left: 2;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: rgb(14, 42, 227);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s linear;
+
+}
+
+nav ul li a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/*Main*/
+
+main{
+    position: relative;
+    top: 200px;
+    max-width: 90%;
+    height: 100%;
+    margin: auto;    
+    padding: 10px;
+    border-radius: 20px;
+}
+
+article{
+    margin: 40px;
+}
+
+article h1{
+    font-size: 60px;
+}
+
+article .contenido{
+    background-color:rgb(138, 152, 246);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.contenido button{
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(81, 0, 255);
+    font-size: 15px;
+    color: white;
+    border: none;
+    box-shadow: 0px 0px 5px 0.2px black;
+}
+
+.contenido button span{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.contenido button:hover{
+    background-color: rgb(62, 0, 161) ;
+}
+
+
+.titulito{
+    font-size: 20px;
+    color: rgba(0,0,0,0.6);
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+
+
+@media screen and (max-width:1200px) {
+    header{
+        padding: 40px;
+    }
+
+    .container__cover .mi__imagen img{
+        width: 350px ;
+    }
+
+    .container__cover .texto{
+        max-width: 600px;
+    }
+}
+
+
+@media screen and (max-width:720px) {
+
+    .menu nav{
+        position: fixed;
+        background-color: white;
+        width: 250px;
+        height: 100vh;
+        top:0;
+        right: -250px;
+        padding: 40px;
+        z-index: 1;
+        transition: all 400ms;
+    }
+
+    .menu ul{
+        flex-direction: column;
+        margin-top: 40px;
+    }
+
+    .menu ul li{
+        margin-top: 30px;
+        margin-left: 0;
+    }
+
+    .menu ul li a{
+        color: #161A1D;
+    }
+
+    #selected{
+        color: rgb(220, 14, 227);
+    }
+
+    .menu nav h2{
+        display: block;
+        width: 60px;
+    }
+
+    #back_menu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        display: none;
+    }
+
+    .menu #btn_menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: rgba(255,255,255,0.1);
+        font-size: 24px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+
+    .menu #btn_menu:hover{
+        background: rgba(197, 197, 197, 0.2);
+    }
+
+
+
+}
