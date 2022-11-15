@@ -11,8 +11,7 @@
 <body>
     <div class="container_form">
         <h2>Registrar Tarea</h2>
-        <form action="../../data_base/registro_tareas.php" method="POST">
-            <input type="text" placeholder="Tipo de Tarea" name="tipo_tarea">
+        <form action="../../data_base/registro_notas.php" method="POST">
             <?php
                 include '../../data_base/conexion_db.php';
                 $nombre = '';
@@ -35,9 +34,9 @@
         </form>
         <a href="../principal.php"><button class="botoncito">Regresar</button></a>
     </div>
-
+    
     <?php
         mysqli_close($conexion);
-    ?>
+        ?>
 </body>
 </html>
