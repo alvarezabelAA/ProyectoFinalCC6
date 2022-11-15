@@ -29,7 +29,7 @@
         echo '
             <script>
                 alert("El usuario se ingreso correctamente")
-                window.location = "../login.html";
+                window.location = "../login.php";
             </script>';
     }else{
         echo '
