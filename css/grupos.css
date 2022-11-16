@@ -129,6 +129,37 @@ article .contenido{
     box-shadow: 0px 0px 5px 0.2px black;
 }
 
+.contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cajita2{
+    background-color: #161A1D;
+    border-radius: 10%;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.titulo_cajita{
+    font-size: 50px;
+    margin: 5px;
+    color: #ffffff;
+}
+
+.card-title{
+    font-size: 25px;
+    margin: 5px;
+}
+
+.contenido button{
+    margin: 15px;
+}
+
+
+
 .contenido button span{
     font-weight: bolder;
     font-size: 20px;
