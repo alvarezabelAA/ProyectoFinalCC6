@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    $id = $_SESSION['id_usuario2'];
 
     if(!isset($_SESSION['usuario'])){
         echo '
@@ -48,7 +49,14 @@
     <header>
         <div class="container__menu">
             <div class="logo"> 
-                <h2>Bienvenido</h2>
+            <?php
+                    $query3 = "SELECT nombre FROM usuarios WHERE id_usuario='$id'";
+                    $execute3 = mysqli_query($conexion, $query3);
+                    while ($line3 = mysqli_fetch_array($execute3, MYSQLI_ASSOC)) {
+                        $nombre=$line3["nombre"];
+                ?>
+                <?php } ?>
+                <h2>Bienvenido <?php echo"$nombre!"; ?></h2>
             </div>
             <div class="menu">
                 <i class="fa-solid fa-bars" id="btn_menu"></i>
