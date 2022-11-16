@@ -5,7 +5,7 @@
     if(isset($_SESSION['usuario'])){
         header("location: main/principal.php");
     }
-
+ 
 ?>
 
 <!DOCTYPE html>
