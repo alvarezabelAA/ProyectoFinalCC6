@@ -1,6 +1,6 @@
 <?php
 
-    $conexion = mysqli_connect("localhost","root","123456","organizadorcc6");
+    $conexion = mysqli_connect("localhost","root","","organizadorcc6");
 
     /*
     if($conexion){
