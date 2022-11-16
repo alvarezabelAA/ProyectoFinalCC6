@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    $id = $_SESSION['id_usuario2'];
+
+    include "../data_base/conexion_db.php";
+    $query = "SELECT id_grupo FROM usuarios_de_grupo WHERE id_usuario='$id'";
+    $execute = mysqli_query($conexion, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +21,14 @@
     <header>
         <div class="container__menu">
             <div class="logo"> 
-                <h2>Bienvenido</h2>
+                <?php
+                    $query3 = "SELECT nombre FROM usuarios WHERE id_usuario='$id'";
+                    $execute3 = mysqli_query($conexion, $query3);
+                    while ($line3 = mysqli_fetch_array($execute3, MYSQLI_ASSOC)) {
+                        $nombre=$line3["nombre"];
+                ?>
+                <?php } ?>
+                <h2>Bienvenido <?php echo"$nombre!"; ?></h2>
             </div>
             <div class="menu">
                 <i class="fa-solid fa-bars" id="btn_menu"></i>
@@ -30,30 +46,42 @@
     </header>
     <main>
         <article>
-            <form action="/data_base/get_grupos.php" method="POST">
                 <div class="titulo">
                     <div class="titulito">
                         <h2><i class="fa-solid fa-user-group"></i> Mis Grupos</h2>
                     </div>
                     <div class="contenido">
-                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ducimus impedit incidunt aperiam molestiae iste, excepturi eligendi provident aspernatur, quos eum nemo id tempora explicabo minus? Similique iusto doloremque culpa.</span><span>Fugiat neque, laboriosam veniam possimus ab odio! Explicabo expedita modi vero nulla enim necessitatibus aut perspiciatis. Officiis reprehenderit est commodi omnis in, vitae labore, nemo eligendi blanditiis recusandae laudantium provident!</span></p>
-                        <button>Actualizar</button>
+                        
+                    <?php
+                     while ($line = mysqli_fetch_array($execute, MYSQLI_ASSOC)) {
+                        $id_grupo=$line["id_grupo"];
+                        
+                        $query2 = "SELECT * FROM grupo WHERE id_grupo=$id_grupo";
+                        $execute2 = mysqli_query($conexion, $query2);
+
+                        while ($line2 = mysqli_fetch_array($execute2, MYSQLI_ASSOC)) {
+                        $id_grupo=$line2['id_grupo'];
+                        $nombre_grupo=$line2['nombre_grupo'];
+                    ?>
+                        <div class="cajita_grupos">
+                            <div class="cajita2">
+                                <div class="titulo_cajita">ID del Grupo: <?php echo"$id_grupo"; ?></div>
+                                    <div class="contenido_cajita">
+                                        <h5 class="card-title">Nombre del Grupo: <?php echo"$nombre_grupo"; ?></h5>
+                                        
+                                    </div>
+                                    <a href="../data_base/get_grupos.php?id_usuario=<?php echo"$id"?>&id_grupo=<?php echo"$id_grupo"?>"><button type="button" class="btn btn-warning">Eliminar</button></a>  
+                            </div>
+                        </div>
+                       
+                        <?php } ?>
+                        <?php } ?>
+                        <a href="../main/grupos.php"><button>Actualizar</button></a>
+                        <a href="../main/crearGrupo.php"><button> <span>+ </span> Crear Grupo</button></a>
                     </div>
                 </div>
-                <input type="hidden" name="get_grupos" value="">
-            </form>
         </article>
-        <article>
-            <div class="titulo">
-                <div class="titulito">
-                    <h2><i class="fa-solid fa-people-group"></i> Grupos Creados</h2>
-                </div>
-                <div class="contenido">
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ducimus impedit incidunt aperiam molestiae iste, excepturi eligendi provident aspernatur, quos eum nemo id tempora explicabo minus? Similique iusto doloremque culpa.</span><span>Fugiat neque, laboriosam veniam possimus ab odio! Explicabo expedita modi vero nulla enim necessitatibus aut perspiciatis. Officiis reprehenderit est commodi omnis in, vitae labore, nemo eligendi blanditiis recusandae laudantium provident!</span></p>
-                    <button> <span>+ </span> Crear Grupo</button>
-                </div>
-            </div>
-        </article>
+       
     </main>
 </body>
 </html>
