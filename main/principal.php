@@ -19,8 +19,8 @@
 <?php 
                             include "../data_base/conexion_db.php";
 
-                            $query = "select * from tareas order by id_receptor";
-                            $query2 = "select * from comentario order by id_receptor";
+                            $query = "SELECT * from tareas  WHERE id_receptor=$id";
+                            $query2 = "SELECT * from comentario WHERE id_receptor=$id";
                             $execute = mysqli_query($conexion, $query);
                             $execute3 = mysqli_query($conexion, $query);
                             $execute2 = mysqli_query($conexion, $query2);
