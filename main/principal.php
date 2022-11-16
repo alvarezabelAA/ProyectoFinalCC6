@@ -57,7 +57,7 @@
                     <h2>Soy,<span>Abel</span></h2>
                     <ul>
                         <li><a href="principal.php" id="selected">Principal</a></li>
-                        <li><a href="grupos.html">Grupos</a></li>
+                        <li><a href="grupos.php">Grupos</a></li>
                         <li><a href="../data_base/cerrar_sesion.php">Cerrar Sesión</a></li>
                     </ul>
                 </nav>
